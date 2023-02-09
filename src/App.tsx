@@ -42,7 +42,7 @@ function App() {
   return (
     <div>
       <h1 className="heading" style={{ textDecoration: "underline" }}>
-        Welcome to Text to image generator!
+        Welcome to Text-To-Image generator!
       </h1>
       <Input generateImage={generateImage} setLoading={setLoading} setImageURLs={setImageURLs} />
 
