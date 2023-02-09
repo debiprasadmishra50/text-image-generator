@@ -1,0 +1,2 @@
+For Netlify build:
+    remove homepage field from package.json

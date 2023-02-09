@@ -48,7 +48,23 @@ function App() {
 
       <RenderImage imageUrls={imageUrls} loading={loading} />
 
-      <footer style={{ height: "10vh" }}></footer>
+      <footer
+        style={{
+          height: "10vh",
+          bottom: "10px",
+          marginTop: "25px",
+          textAlign: "center",
+          fontSize: "1.2rem",
+          color: "#777",
+        }}
+      >
+        <div>
+          Made with ♥️ by{" "}
+          <a href="https://debiprasadmsihta.net" target="__blank" style={{ color: "#777" }}>
+            Debi Prasad Mishra
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }
