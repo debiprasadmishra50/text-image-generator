@@ -1,4 +1,4 @@
-import Input from "./components/Input";
+import SearchForm from "./components/SearchForm";
 import "./App.css";
 import { useEffect, useState } from "react";
 import { Configuration, OpenAIApi } from "openai";
@@ -20,10 +20,10 @@ function App() {
     else console.log("Connection error");
   };
 
-  const generateImage = async (prompt: string) => {
+  const generateImage = async (prompt: string, noOfImage: string) => {
     const results: any = await openai?.createImage({
       prompt: prompt,
-      n: 1,
+      n: +noOfImage,
       response_format: "url",
       size: "1024x1024",
     });
@@ -40,11 +40,9 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <h1 className="heading" style={{ textDecoration: "underline" }}>
-        Welcome to Text-To-Image generator!
-      </h1>
-      <Input generateImage={generateImage} setLoading={setLoading} setImageURLs={setImageURLs} />
+    <div className="container-fluid">
+      <h1 className="heading">Welcome to Text-To-Image generator!</h1>
+      <SearchForm generateImage={generateImage} setLoading={setLoading} setImageURLs={setImageURLs} />
 
       <RenderImage imageUrls={imageUrls} loading={loading} />
 
@@ -57,14 +55,7 @@ function App() {
           fontSize: "1.2rem",
           color: "#777",
         }}
-      >
-        <div>
-          Made with ♥️ by{" "}
-          <a href="https://debiprasadmsihta.net" target="__blank" style={{ color: "#777" }}>
-            Debi Prasad Mishra
-          </a>
-        </div>
-      </footer>
+      ></footer>
     </div>
   );
 }
