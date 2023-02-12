@@ -16,9 +16,9 @@ function RenderImage({ imageUrls, loading }: RenderImageProps) {
     }
   };
 
-  const renderSingleImage = (url: string) => {
+  const renderSingleImage = (url: string, add: boolean = true) => {
     return (
-      <div className="content">
+      <div className={add ? "content" : "img-content"}>
         <img src={url} alt={url} key={1} />
       </div>
     );
@@ -29,7 +29,7 @@ function RenderImage({ imageUrls, loading }: RenderImageProps) {
 
     for (let i = 0; i < imageUrls.length; i += 2) {
       if (!imageUrls[i + 1]) {
-        renderData.push(renderSingleImage(imageUrls[i].url));
+        renderData.push(renderSingleImage(imageUrls[i].url, false));
         return renderData;
       }
 
